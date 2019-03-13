@@ -1,0 +1,46 @@
+{% include 'nav.html' %}
+<div class="main">
+{% block content %}
+
+<div class="">
+		<div class="mr-sm-2 mb-2 col-sm-8" style="margin: 10px;">
+			<form action="{{ url_for('editMobile',mid=mid,mename=mobiledetails.modelname)}}" method="POST">
+				<div class="panel panel-info">
+				  <div class="panel-heading"style="background-color:#897979; color:#ff471a;">Edit Mobile Details</div>
+				  <div class="panel-body">
+				  	
+					  <div class="form-group">
+					  	<label class="text-primary" for="modelname">Enter Mobile Model Name:</label>
+					    <input type="name" class="form-control" name="modelname" value="{{mobiledetails.modelname}}">
+					  </div>
+					  <div class="form-group">
+					  	<label class="text-primary" for="processor">Enter Processor:</label>
+					    <input type="text" class="form-control" name="processor" value="{{mobiledetails.processor}}">
+					  </div>
+					  <div class="form-group">
+					  	<label class="text-primary" for="ram">Enter Ram:</label>
+					    <input type="text" class="form-control" name="ram" value="{{mobiledetails.ram}}">
+					  </div>
+					  <div class="text-primary" class="form-group">
+					  	<label for="rom">Enter Rom:</label>
+					    <input type="text" class="form-control" name="rom" value="{{mobiledetails.rom}}">
+					  </div>
+					  <div class="form-group">
+					  	<label class="text-primary" for="price">Enter Price:</label>
+					    <input type="text" class="form-control" name="price" value="{{mobiledetails.price}}">
+					  </div>
+					  <div class="form-group">
+					  	<label class="text-primary" for="screensize">Enter Screen Size:</label>
+					    <input type="text" class="form-control" name="screensize" value="{{mobiledetails.screensize}}">
+					  </div>				
+						<div class="form-group">
+					  	<label class="text-primary" for="rating">Enter rating:</label>
+					    <input type="text" class="form-control" name="rating" value="{{mobiledetails.rating}}">
+					  </div>			
+				  </div> 
+				  <div class="panel-footer text-center" style="background-color:#897979;"><input type="submit" style="background-color:green;"class="btn btn-primary" value="Save"></div>
+				</div>
+				</form>
+			</div>
+</div>
+{% endblock content %}

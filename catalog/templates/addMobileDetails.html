@@ -1,0 +1,52 @@
+
+
+{% include 'nav.html' %}
+<div class="main">
+{% block content %}
+
+<div class="">
+		<div class="mr-sm-2 mb-2 col-sm-8" style="margin: 10px;">
+			<form action="{{ url_for('addMobileDetails',mname=mname)}}" method="POST">
+				<div class="panel panel-primary">
+				  <div class="panel-heading bg-success">Add Mobile Details</div>
+				  <div class="panel-body">
+				  	
+					  <div class="form-group">
+					  	<label class="text-primary" for="modelname">Enter Mobile model Name:</label>
+					    <input type="name" class="form-control" name="modelname" placeholder="Enter Mobile Model Name:" pattern="[A-Za-z0-9 ]{1,}" title="Allow Characters Only" required>
+					  </div>
+					  <div class="form-group">
+					  	<label class="text-primary" for="processor">Enter Processor:</label>
+					    <input type="text" class="form-control" name="processor" placeholder="Enter Processor:" pattern="[A-Za-z0-9 ]{1,}" title="Allow Characters Only" required>
+					  </div>
+					  <div class="form-group">
+					  	<label class="text-primary" for="ram">Enter Ram:</label>
+					    <input type="text" class="form-control" name="ram" placeholder="Enter Ram:" pattern="[A-Za-z0-9 ]{1,}" title="Allow both characters and numbers only " required>
+					  </div>
+					  <div class="text-primary" class="form-group">
+					  	<label for="rom">Enter Rom:</label>
+					    <input type="text" class="form-control" name="rom" placeholder="Enter Rom:" pattern="[A-Za-z0-9 ]{1,}" title="Allow Characters Only" required>
+					  </div>
+					  <div class="form-group">
+					  	<label class="text-primary" for="price">Enter Price:</label>
+					    <input type="text" class="form-control" name="price" placeholder="Enter Price:" pattern="[0-9]{2,}" title="Allow numbers Only" required>
+					  </div>
+					  <div class="form-group">
+					  	<label class="text-primary" for="screensize">Enter Screen Size:</label>
+					    <input type="text" class="form-control" name="screensize" placeholder="Enter screen Size:" pattern="[A-Za-z0-9 ]{1,}" title="Allow numbers Only" required>
+					  </div>
+					  </div>
+					  <div class="form-group">
+					  	<label class="text-primary" for="rating">Enter Rating:</label>
+					    <input type="text" class="form-control" name="rating" placeholder="Enter rating:" pattern="[A-Za-z0-9 ]{1,}" title="Allow numbers Only" required>
+					  </div>
+					  <div class="form-group">
+					    <input type="text" class="form-control " name="bookcompanynameid" value="{{ mname }}" readonly>
+					  </div>
+				  </div> 
+				  <div class="panel-footer text-center"><input type="submit" class="btn btn-primary" value="Submit"></div>
+				</div>
+				</form>
+			</div>
+</div>
+{% endblock content %}

@@ -1,0 +1,48 @@
+{% include 'nav.html' %}
+<div class="main">
+{% block content %}
+{% with messages = get_flashed_messages() %}
+	{% if messages %}
+	        <div class="alert alert-success alert-dismissable animated fadeIn">
+	            {% for message in messages %}
+	            <a href="#" class="close" data-dismiss="alert" aria-label="close">×</a>
+	            <p class="h4"><strong>{{ message }}</strong></p>
+	            {% endfor %}
+	        </div>
+	{% endif %}	    
+{% endwith %}
+{% if 'username' in session %}
+<button type="button" class="btn btn-warning" style="margin: 5px 0px 5px 25px; background-color:green;"><a href="{{url_for('addMobileDetails',mname=mbs.name)}}" style="text-decoration: none; color: #EC7218;"><strong>Add New MOBILE</strong></a></button>
+
+{% endif %}
+<div class="row" style="margin: 10px;">
+{% for mbe in mbes %}
+
+	<div class="col-sm-4 text-center">
+		<div class="panel panel-primary" style="color:#ff471a;">
+			<div class="panel-heading" style="background-color:#897979; color:#ff471a;">
+				<h4>{{ mbe.modelname }}</h4>
+			</div>
+			<div class="panel-body text-center">
+				<table>
+					<tr><th>PROCESSOR</th><td>:</td><td><h5>{{ mbe.processor }}</h5></td></tr>
+					<tr><th>RAM</th><td>:</td><td><h5>{{ mbe.ram }}</h5></td></tr>
+					<tr><th>ROM</th><td>:</td><td><h5>{{ mbe.rom }}</h5></td></tr>
+					<tr><th>PRICE</th><td>:</td><td><h5>{{ mbe.price }}</h5></td></tr>
+					<tr><th>SCREENSIZE</th><td>:</td><td><h5>{{ mbe.screensize }}</h5></td></tr>
+					<tr><th>RATING</th><td>:</td><td><h5>{{ mbe.rating }}</h5></td></tr>
+				</table>
+			</div>
+			{% if 'username' in session %}
+			<div class="panel-footer" style="background-color:#897979; ">
+					<button type="button" class="btn btn-info"  style="background-color:skyblue;"><a href="{{ url_for('editMobile',mid=mbs.id,mename=mbe.modelname) }}"style="text-decoration: none;color:white;">EDIT</a></button>
+					<button type="button" class="btn btn-danger" style="background-color:yellow;"><a href="{{ url_for('deleteMobile',mid=mbs.id,mename=mbe.modelname)}}"style="text-decoration: none;color:white;">DELETE</a></button>
+			</div>
+			{% endif %}	
+			
+		</div>
+	</div>
+{% endfor %}
+</div>
+{% endblock content %}
+</div>
